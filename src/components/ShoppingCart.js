@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
 import {removeFromCart} from '../actionCreators';
 import {connect} from 'react-redux';//de redux

@@ -1,4 +1,4 @@
-import {createStore} from 'redux';
+import {createStore , applyMiddleware} from 'redux';
 
 const reduce = (state , action) => {
 
@@ -22,4 +22,11 @@ const reduce = (state , action) => {
   return state;
 }
 
-export default createStore(reduce , {cart : [] });
+const logger = store => next => action => {
+  console.log('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  return result;
+}
+
+export default createStore(reduce , {cart : [] } , applyMiddleware(logger));
