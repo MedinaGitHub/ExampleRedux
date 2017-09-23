@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import store from '../store';
+import {addToCart} from '../actionCreators';
 
 const styles = {
   products: {
@@ -48,11 +49,9 @@ class ProductList extends Component {
   }
 
   addToCart(product) {//esto se va a store.js como (state,action)
-    console.log('paso1');
-    store.dispatch({
-      type:"ADD_TO_CART",
-      product
-    })
+
+    store.dispatch(addToCart(product))
+
   }
 }
 
