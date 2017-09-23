@@ -11,16 +11,12 @@ const reduce = (state , action) => {
   }
 
   else if(action.type === "REMOVE_FROM_CART"){
-  console.log('remove');
-/*
-  this.setState({people: this.state.people.filter(function(person) {
-       return person !== e.target.value
-   })};
-  */
-  return {
-    ...state,
-    cart :state.cart.filter( c => c.id != action.product.id)
-  }
+    console.log('remove');
+
+    return {
+      ...state,
+      cart :state.cart.filter( c => c.id !== action.product.id)
+    }
   }
 
   return state;
