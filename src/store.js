@@ -1,8 +1,17 @@
 import {createStore , applyMiddleware} from 'redux';
 
+import thunk from 'redux-thunk';//para llamadas asincronas
+
 const reduce = (state , action) => {
 
-  if(action.type === "ADD_TO_CART"){
+  if(action.type === "REPLACE_PRODUCTS"){
+    return {
+      ...state,
+      products: action.products
+    };
+  }
+
+  else if(action.type === "ADD_TO_CART"){
     console.log('add');
     return  {
       ...state,
@@ -29,4 +38,4 @@ const logger = store => next => action => {
   return result;
 }
 
-export default createStore(reduce , {cart : [] } , applyMiddleware(logger));
+export default createStore(reduce , {cart : [] , products: [] } , applyMiddleware(logger,thunk));
