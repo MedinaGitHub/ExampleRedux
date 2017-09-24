@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-
+import {shallow} from 'enzyme';
+//Prueba Jest archivo creado solo con una prueba basica que testea que  el componente app.js se renderize correctamente
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  shallow(<App/>);
 });
